@@ -1,0 +1,9 @@
+Script Purpose:
+This Script creates a new data base name "datawarehouse' in SQL work bench if the database exist it will not execute so choose accordingly
+
+Create Database Datawarehouse;
+
+Use datawarehouse;
+Create schema Bronze;
+Create schema silver;
+Create schema gold;    
