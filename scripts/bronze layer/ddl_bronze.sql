@@ -6,6 +6,7 @@ The inpute of data may differ as per the organisational file's location
 
 the measurement of speed of the etl process in the code 
 
+Creation of stored procedures at the end
 
 ====================================================================
 
