@@ -1,13 +1,19 @@
 ===================================================================
+Stored procedure: Load Bronze Layer ( source -> Bronze)
+===================================================================
+Script Purpose:
+	This stored procedure loads data into the bronze schema from external CSV files.
+	It perfroms the following actions;
+- truncates the bronze tables before loading data.
+- Uses the 'BULK INSERT' command to load data from csv files to bronze tables.
 
-THIS IS to create a file, the T sql logic redefines the file to clear all data and start again
 
-The inpute of data may differ as per the organisational file's location 
+Parameters;
+None.
+	this stored procedures does not accepect any parameters or return any values.
+Usage example
 
-the measurement of speed of the etl process in the code 
-
-Creation of stored procedures at the end
-
+EXEC bronze.load_bronze;
 ====================================================================
 
 
@@ -40,9 +46,9 @@ cst_create_date Date
  sls_ord_num varchar(50),
  sls_prd_key varchar(50),
  sls_cust_id varchar(50),
- sls_order_dt date,
- sls_ship_dt date,
- sls_due_dt date,
+ sls_order_dt varchar(50),
+ sls_ship_dt varchar(50),
+ sls_due_dt varchar(50),
  sls_sale varchar(50),
  sls_quantity varchar(50),
  sls_price varchar(50)
