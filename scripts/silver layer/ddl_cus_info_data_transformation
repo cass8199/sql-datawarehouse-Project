@@ -1,11 +1,11 @@
 =================================================================================
-  Checked for data dublication 
+  Tranforming and loading transformed data to the silver layer  		 
   Check for data normalization
   Handling Missing Data 
   INSERTING transformed data into new layer
   
 =====================================================================================
- Checked for data dublication 
+Checked for data dublication and flag them
 select 
 cst_id, count(*)
 From 
