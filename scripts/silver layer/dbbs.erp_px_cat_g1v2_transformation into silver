@@ -1,0 +1,18 @@
+insert into silver.erp_PX_CAT_G1V2
+(
+id,
+cat,
+subcat,
+maintenance)
+select 
+id,
+cat,
+subcat,
+maintenance
+from bronze.erp_PX_CAT_G1V2;
+
+--check unwanted space--
+select * from bronze.erp_PX_CAT_G1V2
+where cat != TRIM(cat) or subcat != TRIM(subcat) or MAINTENANCE != TRIM(maintenance)
+-- data standardization & Consistency	
+select distinct MAINTENANCE from bronze.erp_PX_CAT_G1V2;
