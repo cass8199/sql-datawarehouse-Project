@@ -1,0 +1,51 @@
+-- checking for empty spaces--
+select 
+CID 
+from bronze.erp_Cust_AZ12
+where cid != TRIM(cid)
+-- truncate the data in silver layer to 
+select
+CASE WHEN cid like 'NAS%' THEN SUBSTRING(cid,4,len(cid))
+	else cid
+end cid
+from bronze.erp_Cust_AZ12
+
+--checking if it matching with the silver layer
+select
+CASE when cid like 'NAS%' then substring(cid,4,len(cid))
+	else cid
+end cid,
+bdate,
+gen
+from bronze.erp_Cust_AZ12
+where CASE when cid like 'NAS%' then substring(cid,4,len(cid))
+	else cid
+end not in (select distinct cst_key from silver.crm_cust_info)
+
+--identify out-of-range date
+select 
+bdate from bronze.erp_Cust_AZ12
+where bdate <'1924-01-01' or bdate > getdate()
+--data standardization and consistency
+SELECT distinct gen
+from bronze.erp_Cust_AZ12
+
+--main query--
+insert into silver.erp_cust_az12 
+(
+cid,
+bdate,
+gen)
+
+select
+CASE when cid like 'NAS%' then substring(cid,4,len(cid))
+	else cid
+end cid,
+case when bdate > GETDATE() then NULL 
+	else bdate
+end bdate,
+CASE WHEN Upper(TRIM(gen)) IN ('F', 'FEMALE') THEN 'FEMALE'
+	 WHEN Upper(TRIM(gen)) IN ('M', 'MALE') THEN 'MALE'
+	 ELSE 'n/a'
+END AS gen
+from bronze.erp_Cust_AZ12
