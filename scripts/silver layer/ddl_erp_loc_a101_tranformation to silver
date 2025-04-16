@@ -1,0 +1,13 @@
+--main queery--
+insert into silver.erp_LOC_A101
+(
+cid,
+cntry)
+Select
+replace(cid, '-','') cid, 
+CASE When trim(cntry) = 'DE' THEN 'Germany'
+	 WHEN trim(cntry) IN ('US', 'USA') THEN 'United States'
+	 WHEN TRIM (cntry) = '' or cntry is NULL then 'n/a'
+	 ELSE TRIM(cntry)
+end cntry
+from bronze.erp_LOC_A101
