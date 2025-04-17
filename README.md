@@ -15,6 +15,8 @@ Data Modeling: Developing fact and dimension tables optimized for analytical que
 
 Analytics & Reporting: Creating SQL-based reports and dashboards for actionable insights.
 
+Notion Link: https://www.notion.so/Data-Ware-house-project-1ca42bb03122802c9925cc9f696d564c
+
 🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
 
 * SQL Development
