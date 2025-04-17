@@ -48,10 +48,6 @@ Specifications
 📁 **Repository Structure**
 
 <img width="563" alt="Image" src="https://github.com/user-attachments/assets/abc11b69-41ba-4ee3-90bf-37cdb6695f96" />
-├── README.md                         # Project overview and instructions
-├── LICENSE                           # License information for the repository
-├── .gitignore                        # Files and directories to be ignored by Git
-└── requirements.txt                  # Dependencies and requirements for the project
 
 
 
