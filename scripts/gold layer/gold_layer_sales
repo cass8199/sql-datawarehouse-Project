@@ -1,3 +1,20 @@
+==============================================================================================================================================================
+The gold.fact_sales view is a sales fact table that captures detailed transactional data for each sales order. 
+It integrates sales data from the CRM system with enriched product and customer dimensions from the gold layer.
+
+Joins:
+
+Links each sales record to gold.dim_products using the product key.
+
+Links to gold.dim_customers using the customer ID for a complete view of each transaction.
+
+Measures Included: Total sales amount, quantity sold, and unit price.
+
+Dates Tracked: Sales order date, shipment date, and due date for delivery tracking and analysis.
+
+This fact table is ideal for building business intelligence reports, supporting KPIs like revenue trends, customer purchasing behavior, and product performance.
+================================================================================================================================================================
+
 create view gold.fact_sales as
 select 
 sd.sls_ord_num as sales_order_number,
