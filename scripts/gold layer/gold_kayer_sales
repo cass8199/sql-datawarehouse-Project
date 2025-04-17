@@ -1,0 +1,25 @@
+create view gold.fact_sales as
+select 
+sd.sls_ord_num as sales_order_number,
+pr.producted_key as product_key,
+cu.customer_key as customer_key,
+sd.sls_order_dt as sales_order_date,
+sd.sls_ship_dt as sales_ship_date,
+sd.sls_due_dt as sales_due_date,
+sd.sls_sale as total_sales,
+sd.sls_quantity as sales_quantity,
+sd.sls_price as sales_price
+from silver.crm_sales_details sd
+left join gold.dim_products pr 
+on sd.sls_prd_key = pr.producted_key
+left join gold.dim_customers cu
+on sd.sls_cust_id = cu.customer_id
+
+--foreign key integrity (dimensions)-- 
+select *
+from gold.fact_sales f 
+left join gold.dim_customers c 
+on c.customer_id = f.customer_key
+left join gold.dim_products p
+on p.producted_key = f.product_key
+where p.producted_key is null 
