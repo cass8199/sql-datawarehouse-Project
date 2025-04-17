@@ -1,3 +1,24 @@
+======================================================================================================================================
+The gold.dim_products view is a dimensional product table created from source data in the silver layer. It consolidates product-related 
+information from two tables: silver.crm_prd_info (product information) and silver.erp_PX_CAT_G1V2 (category details).
+
+Key points:
+
+Primary Purpose: To generate a clean and enriched product dimension for analytical and reporting purposes.
+
+Product Key: A surrogate key (product_key) is generated using ROW_NUMBER() ordered by product start date and product key to ensure uniqueness and maintain consistency.
+
+Join Logic: A LEFT JOIN merges product data with category data using the category ID.
+
+Filters: The view only includes active products (prd_end_dt IS NULL), filtering out any products that have been discontinued or ended.
+
+Fields Included: Product identifiers, names, costs, category info (main and subcategories), product line, start date, and maintenance flags are 
+included for comprehensive dimensional analysis.
+
+This view can be used in downstream reporting, analytics, or as part of a star schema for product-related insights.
+
+==============================================================================================================================================
+
 create view gold.dim_customers AS
 
 select 
