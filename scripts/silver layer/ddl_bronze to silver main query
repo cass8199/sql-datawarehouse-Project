@@ -1,3 +1,29 @@
+================================================================================================================================
+Truncation and Insertion: Each silver table is truncated before inserting fresh, transformed records.
+
+Data Cleaning:
+
+Trimming white spaces from names and IDs.
+
+Standardizing categorical values like gender, marital status, country, and product lines.
+
+Handling invalid/missing dates and correcting sales values and prices.
+
+Data Deduplication:
+
+Using window functions to retain only the latest customer records.
+
+Key Transformations:
+
+Deriving product category from product key.
+
+Calculating prd_end_dt using lead date logic.
+
+Ensuring price and sales values are consistent and logically calculated.
+
+Formatting and fixing ERP country and gender data.
+===========================================================================================================================================================
+
 Print '>> Inserting Data INTO: silver.crm_cust_info'
 Truncate table silver.crm_cust_info;
 Print '>> Inserting Data INTO: silver.crm_cust_info'
