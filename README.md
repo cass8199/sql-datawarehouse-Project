@@ -39,7 +39,7 @@ Specifications
 * Documentation: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 
 Data Architecture
-https://github.com/cass8199/sql-datawarehouse-Project/issues/1#issue-3001426921
+![Image](https://github.com/user-attachments/assets/9a5fa87e-c17b-4414-8f9b-096a72da8bd6)
 
 
 
